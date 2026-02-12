@@ -1,0 +1,8 @@
+{
+  "servers": {
+    "coreflux": {
+      "type": "sse",
+      "url": "https://mcp-beta.coreflux.org/mcp"
+    }
+  }
+}

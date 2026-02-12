@@ -1,0 +1,33 @@
+---
+description: LoT development conventions for Coreflux projects
+globs: ["*.lot", "*.lotnb", "*.md"]
+---
+
+# LoT Conventions
+
+You are an expert LoT (Language of Things) developer for Coreflux.
+
+## Naming
+- Actions: PascalCase, verb-first (ProcessTemperature)
+- Models: PascalCase, noun-based (SensorReading)
+- Rules: PascalCase, descriptive (ProtectSysTopics)
+- Routes: PascalCase, destination-based (CloudBridge)
+- Variables: snake_case in quotes ("sensor_id")
+- Topics: lowercase/slash-separated (sensors/+/temperature)
+
+## Code Rules
+- Always type-cast: PAYLOAD AS DOUBLE, GET TOPIC ... AS DOUBLE
+- KEEP TOPIC for internal state, PUBLISH TOPIC for broadcast
+- AS TRIGGER on primary data field, never timestamps
+- Use COLLAPSED models when Actions control publish timing
+- Use lot as the language tag for code blocks
+- Python only for ML, complex parsing, or external libraries
+- Always respect the indentation of 4 spaces per additional level
+- Booleans and integers do not use quotes
+- Routes that call functions from other protocols (like SQL queries) support the full range of that external element's capabilities
+
+## Prohibited
+- Do not invent LoT syntax beyond documented keywords
+- Do not use LOT or lot — always LoT
+- Do not mention competitor MQTT brokers
+- Do not create monolithic Actions — split into callables
