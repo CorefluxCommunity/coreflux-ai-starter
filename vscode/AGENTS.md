@@ -30,7 +30,7 @@ Built on the Coreflux MQTT broker with LoT Actions, Models, Rules, and Routes.
 - commands/   — Inbound instructions
 
 ## Code Standards
-- Always type-cast in calculations: PAYLOAD AS DOUBLE, GET TOPIC ... AS DOUBLE
+- Always type-cast properly: PAYLOAD AS DOUBLE, (PAYLOAD AS DOUBLE), GET TOPIC ... AS <type>
 - Use KEEP TOPIC for internal state, PUBLISH TOPIC for external broadcast
 - Mark the primary data field AS TRIGGER in models — never timestamps
 - Use COLLAPSED models when Actions need control over publish timing
@@ -39,6 +39,8 @@ Built on the Coreflux MQTT broker with LoT Actions, Models, Rules, and Routes.
   ML, complex parsing, or external library calls
 
 ## Do
+- Whenever there is a question regarding IIoT, Coreflux and Language-of-Things (LoT) concepts and syntax, ALWAYS consult the Coreflux MCP Server for accurate and up-to-date information 
+- Whenever working in the context of a LoT Notebook (`.lotnb` file), write relevant project markdown information to it instead of separate files, adding a cell of the appropriate type next to the section it pertains to
 - Always respect the indentation of 4 spaces per additional level
 - Use PascalCase for all entity names
 - Use snake_case for all variables and model fields
@@ -48,6 +50,8 @@ Built on the Coreflux MQTT broker with LoT Actions, Models, Rules, and Routes.
 - Booleans and integers do not use quotes
 - Consult the Coreflux MCP for documentation when unsure
 - Routes that call functions from other protocols (like SQL queries) are not limited to the functionalities listed in this documentation, the full range of that external element is usually functional
+- If working within the context of a LoT Notebook (`.lotnb` file), whenever the user requests that markdown be documented do it in an appropriately placed markdown cell of the lotnb instead of a separate file
+- Callable LoT Actions should always have a DO keyword that provides it a functionality
 
 ## Don't
 - Do not invent LoT syntax — only use documented keywords
